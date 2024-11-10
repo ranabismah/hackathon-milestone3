@@ -1,25 +1,26 @@
 "use strict";
-// Get all the form steps
+// Get all form steps and buttons
 const formSteps = document.querySelectorAll('.form-step');
 const nextButtons = document.querySelectorAll('.nextBtn');
-const submitButton = document.getElementById('submitForm');
-let currentStep = 0;
-// Function to show the next step based on the clicked button's `data-next` attribute
+const generateResumeBtn = document.getElementById('generateResumeBtn');
+const resumePreview = document.getElementById('resumePreview');
+const resumeContent = document.getElementById('resumeContent');
+let currentStep = 0; // To keep track of the current form step
+// Function to navigate between form steps
 function goToNextStep(nextStepId) {
     const currentStepElement = formSteps[currentStep];
     currentStepElement.classList.remove('active'); // Hide current step
     const nextStepElement = document.getElementById(nextStepId);
     if (nextStepElement) {
-        nextStepElement.classList.add('active');
+        nextStepElement.classList.add('active'); // Show the next step
     }
-    // Update the currentStep index manually by iterating over formSteps
     formSteps.forEach((step, index) => {
         if (step.id === nextStepId) {
             currentStep = index;
         }
     });
 }
-// Attach event listeners to each "Next" button
+// Add event listeners for the "Next" buttons
 nextButtons.forEach(button => {
     button.addEventListener('click', () => {
         const nextStepId = button.getAttribute('data-next');
@@ -28,25 +29,19 @@ nextButtons.forEach(button => {
         }
     });
 });
-// Handle form submission and generate resume preview
-submitButton.addEventListener('click', () => {
+// Handle the "Generate Resume" button click event
+generateResumeBtn?.addEventListener('click', () => {
     const formData = new FormData(document.getElementById('resumeForm'));
     const resumeData = {};
-    // Collect form data into a JavaScript object
+    // Collect data from the form fields
     formData.forEach((value, key) => {
         resumeData[key] = value;
     });
-    // Generate and display the resume preview
+    // Generate and display the resume
     generateResume(resumeData);
 });
-// Function to generate and display the resume preview
+// Function to generate the resume and display it
 function generateResume(data) {
-    const resumeContent = document.getElementById('resumeContent');
-    const resumePreview = document.getElementById('resumePreview');
-    // Set the "Your Resume" heading to include the user's name
-    const resumeHeading = document.getElementById('resumeHeading');
-    resumeHeading.innerHTML = `Resume of ${data.fullName}`;
-    // Set the content of the resume preview
     resumeContent.innerHTML = `
         <div class="resume-section">
             <h3>Personal Information</h3>
@@ -63,17 +58,17 @@ function generateResume(data) {
         </div>
 
         <div class="resume-section">
+            <h3>Skills</h3>
+            <p><strong>Skills:</strong> ${data.skills}</p>
+        </div>
+
+        <div class="resume-section">
             <h3>Work Experience</h3>
             <p><strong>Job Title:</strong> ${data.jobTitle}</p>
             <p><strong>Company:</strong> ${data.company}</p>
             <p><strong>Work Dates:</strong> ${data.workDates}</p>
         </div>
-
-        <div class="resume-section">
-            <h3>Skills</h3>
-            <p><strong>Skills:</strong> ${data.skills}</p>
-        </div>
     `;
-    // Display the resume preview section
+    // Show the generated resume
     resumePreview.style.display = 'block';
 }

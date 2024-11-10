@@ -1,18 +1,18 @@
 {
-  "name": "milestone1",
+  "name": "milestone3",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
+  "description": "Resume builder",
+  "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",                    
+    "start": "live-server public",      
+    "dev": "tsc --watch"                
   },
- 
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^4.x.x"
-  }
+    "typescript": "^4.5.2",
+    "live-server": "^1.2.1"
+  },
+  "dependencies": {}
 }
-

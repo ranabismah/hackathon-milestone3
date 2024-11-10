@@ -1,54 +1,69 @@
 /* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.app-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 20px;
+    background-color: #f7f7f7;
 }
 
-.container {
-    background-color: white;
-    width: 100%;
-    max-width: 700px;
-    padding: 30px;
+.form-container {
+    background-color: #fff;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
 }
 
-h1 {
-    text-align: center;
+.title {
     font-size: 2rem;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .form-step {
     display: none;
+    margin-bottom: 20px;
 }
 
 .form-step.active {
     display: block;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
 }
 
 button {
-    padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -56,11 +71,14 @@ button:hover {
 }
 
 #resumePreview {
-    margin-top: 20px;
+    display: none;
+    margin-top: 30px;
+    background-color: white;
     padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
 }
 
 .resume-section {
@@ -69,8 +87,15 @@ button:hover {
 
 .resume-section h3 {
     margin-top: 0;
+    color: #4CAF50;
+}
+
+#resumeHeading {
+    font-size: 1.8rem;
+    color: #333;
 }
 
 textarea {
-    height: 100px;
+    min-height: 120px;
+    resize: vertical;
 }

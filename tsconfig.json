@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es2022",              // Target ES2022
-    "lib": ["dom", "es2022"],         // Use ES2022 and DOM libraries
-    "outDir": "./public",             // Output compiled JS files to public folder
-    "rootDir": "./",                  // Root folder is the current directory
-    "strict": true,                   // Enable strict type checking
-    "esModuleInterop": true,          // Allow ES6 module imports
-    "skipLibCheck": true,             // Skip type checking for libraries
-    "forceConsistentCasingInFileNames": true // Ensure consistent casing in file names
+    "target": "ES2022",              // Use ES2022 for the output
+    "module": "ESNext",              // Use ESNext modules for modern JS
+    "strict": true,                  // Enable strict type-checking
+    "esModuleInterop": true,         // Allow interop with CommonJS modules
+    "skipLibCheck": true,            // Skip library type checking for speed
+    "forceConsistentCasingInFileNames": true, // Enforce case-sensitivity in imports
+    "outDir": "./public",            // Output the compiled JS to the public folder
+    "moduleResolution": "node",      // Use Node.js style module resolution
+    "declaration": false             // Disable declaration files
   },
   "include": [
-    "public/**/*.ts"                  // Include all .ts files in the public folder
+    "public/script.ts"               // Explicitly include the script.ts file
   ],
   "exclude": [
-    "node_modules",                   // Exclude node_modules
-    "public/**/*.js"                  // Exclude any existing .js files
+    "node_modules"                   // Default exclude: node_modules folder
   ]
 }
 

@@ -1,20 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES2022",              // Use ES2022 for the output
-    "module": "ESNext",              // Use ESNext modules for modern JS
-    "strict": true,                  // Enable strict type-checking
-    "esModuleInterop": true,         // Allow interop with CommonJS modules
-    "skipLibCheck": true,            // Skip library type checking for speed
-    "forceConsistentCasingInFileNames": true, // Enforce case-sensitivity in imports
-    "outDir": "./public",            // Output the compiled JS to the public folder
-    "moduleResolution": "node",      // Use Node.js style module resolution
-    "declaration": false             // Disable declaration files
+    "target": "es2022",          // Use ES2022 for modern JavaScript features
+    "module": "esnext",
+    "outDir": "./public",        // Output directory for compiled files (inside public folder)
+    "rootDir": "./public",       // Input directory (source files are in public)
+    "strict": true,
+    "esModuleInterop": true
   },
   "include": [
-    "public/script.ts"               // Explicitly include the script.ts file
+    "public/**/*.ts"
   ],
   "exclude": [
-    "node_modules"                   // Default exclude: node_modules folder
+    "node_modules",
+    "public/script.js"  // Don't include the compiled JS file in TypeScript compilation
   ]
 }
+
 
